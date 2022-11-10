@@ -8,29 +8,31 @@ public class String_UnluUnsuzSayisi {
     public static void main(String[] args) {
 
     //1. yol
-        String str = "Count number of Vowels and Consonants";
-        int vCount = 0, cCount = 0;
-        str = str.toLowerCase();
+        String word = "Team 10 Projeye Baslayacak";
+        int sesliSayisi = 0, sessizSayisi = 0;
+        word = word.toLowerCase();
 
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i'
-                    || str.charAt(i) == 'o' || str.charAt(i) == 'u') {
-                vCount++;
-            } else if ((str.charAt(i) >= 'a'&& str.charAt(i) <= 'z')){
-                cCount++;
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) == 'i'
+                    || word.charAt(i) == 'o' || word.charAt(i) == 'u') {
+                sesliSayisi++;
+            } else if ((word.charAt(i) >= 'a'&& word.charAt(i) <= 'z')){
+                sessizSayisi++;
             }
-        } System.out.println("number of vowels is "+vCount+" and number of consonants is "+cCount );
+        } System.out.println("number of vowels is "+sesliSayisi+" and number of consonants is "+sessizSayisi );
 
-        // 2. yol
-        System.out.println(numbers(str));
+        System.out.println(numbers(word));
+
     }
 
+    // 2. yol
     public static String numbers(String word) {
         int countVowels = 0;
         int countConsonants = 0;
         List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u');
         List<Character> consonants = new ArrayList<>();
         word=word.replaceAll("\\s","");
+        word=word.replaceAll("\\d","");
 
         for(char i = 'a'; i <= 'z'; i++) {
             if(!vowels.contains(i)) {
@@ -45,4 +47,6 @@ public class String_UnluUnsuzSayisi {
         }
         return "number of vowels is " + countVowels + " and number of consonants is " +
                 countConsonants; }
+
+
 }
